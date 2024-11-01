@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.Length;
 @Setter
 public class UserRegisterDTO {
     @Length(min = 3, max = 20)
-    private String username;
+    private String nickname;
     @Length(min = 3, max = 20)
     private String handle;
     @Email
