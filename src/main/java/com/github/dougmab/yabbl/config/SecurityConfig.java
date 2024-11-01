@@ -40,8 +40,7 @@ public class SecurityConfig {
         // Provisory configuration
         httpRequest.authorizeHttpRequests(request ->
                         request
-                                .requestMatchers("/h2-console/**").permitAll()
-                                .requestMatchers("/auth/**").permitAll()
+                                .requestMatchers("/h2-console/**", "/auth/**", "/ws/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                                 .anyRequest().authenticated()
