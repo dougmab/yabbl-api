@@ -47,10 +47,11 @@ public class TokenService {
 
         var claims = JwtClaimsSet.builder()
                 .issuer("yabbl-api")
-                .subject(user.getId().toString())
+                .subject(user.getHandle())
                 .expiresAt(now.plusSeconds(expiresInSeconds))
                 .issuedAt(now)
                 .claim("scope", scopes)
+                .claim("id", user.getId())
                 .build();
 
         String jwtToken = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
